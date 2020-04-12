@@ -32,6 +32,10 @@ app.post('/searches',(request,response)=>{
       })
       response.render('./pages/searches/show',{data:dataArray});
     })
+    .catch((error) => {
+      errorHandler(error, request, response);
+    });
+
 })
 function Book (value){
   this.image = value.volumeInfo.imageLinks.smallThumbnail;
@@ -55,6 +59,10 @@ function Book (value){
 //       res.render('booksPage',{book:data.body.items})
 //     })
 // })
+function errorHandler (err,req,res){
+  res.status(500).send(err);
+}
+
 app.get('*',(req,res)=>{
   res.status(404).send('This route does not exist!!');
 })
