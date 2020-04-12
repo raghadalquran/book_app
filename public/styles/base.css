@@ -1,9 +1,11 @@
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
+@media (min-width: 375px) {
 body{
-    background-color: #ffffcc;
+    background-color: darkgray;
+    font-family:'PT Sans', sans-serif;
 }
-h1{
-    background-color: rgb(177, 108, 108);
-    padding: 20px;
-    font-size:36px ;
-    text-align: center;
+
 }
+  

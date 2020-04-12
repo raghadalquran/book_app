@@ -15,18 +15,24 @@ app.get('/hello',(req,res)=>{
 app.get('/' , (req,res)=>{
   res.render('./pages/index');
 })
+app.get('/index' , (req,res)=>{
+  res.render('./pages/index');
+})
 app.get('/searches/new',(req,res)=>{
   res.render('./pages/searches/new');
 })
 app.post('/searches',(request,response)=>{
   const inputt = request.body.search;
   const radio = request.body.radio;
-  let url;
-  if(radio === 'title'){
-    url = `https://www.googleapis.com/books/v1/volumes?q=${inputt}`;
-  }else if(radio === 'author') {
-    url = `https://www.googleapis.com/books/v1/volumes?q=${inputt}`;
-  }
+  let url = `https://www.googleapis.com/books/v1/volumes?q=${inputt}+in${radio}:${inputt}`;
+  // const inputt = request.body.search;
+  // const radio = request.body.radio;
+  // let url;
+  // if(radio === 'title'){
+  //   url = `https://www.googleapis.com/books/v1/volumes?q=${inputt}`;
+  // }else if(radio === 'author') {
+  //   url = `https://www.googleapis.com/books/v1/volumes?q=${inputt}`;
+  // }
   console.log(request.body);
   superagent.get(url)
     .then(bookData =>{
@@ -41,7 +47,11 @@ app.post('/searches',(request,response)=>{
 
 })
 function Book (value){
-  this.image = value.volumeInfo.imageLinks.smallThumbnail;
+  if(value.volumeInfo.imageLinks.smallThumbnail === null) {
+    this.image = 'https://www.freeiconspng.com/uploads/book-icon--icon-search-engine-6.png';
+  } else {
+    this.image = value.volumeInfo.imageLinks.smallThumbnail;
+  }
   this.title = value.volumeInfo.title;
   this.author= value.volumeInfo.authors[0];
   this.description = value.volumeInfo.description;
