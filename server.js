@@ -12,6 +12,9 @@ app.set('view engine', 'ejs');
 app.get('/hello',(req,res)=>{
   res.render('./pages/index');
 })
+app.get('/' , (req,res)=>{
+  res.render('./pages/index');
+})
 app.get('/searches/new',(req,res)=>{
   res.render('./pages/searches/new');
 })
@@ -44,21 +47,6 @@ function Book (value){
   this.description = value.volumeInfo.description;
 }
 
-// app.get('/',(req,res)=>{
-//   res.render('index');
-//   // res.status(200).send('okkkkkkkkk');
-// })
-// app.get('/books',(req,res)=>{
-//   // get books from google book api
-//   // .then
-//   // send the result data to render them by res.render
-//   let url =`https://www.googleapis.com/books/v1/volumes?q=cats`;
-//   superagent.get(url)
-//     .then(data => {
-//       // res.json(data.body);
-//       res.render('booksPage',{book:data.body.items})
-//     })
-// })
 function errorHandler (err,req,res){
   res.status(500).send(err);
 }
