@@ -12,6 +12,9 @@ app.set('view engine', 'ejs');
 app.get('/hello',(req,res)=>{
   res.render('./pages/index');
 })
+app.get('/searches/new',(req,res)=>{
+  res.render('./pages/searches/new');
+})
 
 // app.get('/',(req,res)=>{
 //   res.render('index');
