@@ -1,6 +1,9 @@
 body{
-    background-color: aqua;
+    background-color: #ffffcc;
 }
 h1{
-    background-color: brown;
+    background-color: rgb(177, 108, 108);
+    padding: 20px;
+    font-size:36px ;
+    text-align: center;
 }
