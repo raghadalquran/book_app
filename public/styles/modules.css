@@ -1,4 +1,4 @@
-@media (min-width: 375px) {
+@media (min-width: 320px) {
 
     h1{
         font-size: 20px;
@@ -16,7 +16,7 @@
         background-color: black;
     }
     input#first-radio {
-        margin-left: 19%;
+      margin-left: 18%;
     }
         .topnav {
             overflow: hidden;
@@ -46,7 +46,7 @@
           }
           
           .topnav a:hover {
-            background-color: black;
+            background-color: rgb(134, 134, 134);
             color: white;
         }
           
