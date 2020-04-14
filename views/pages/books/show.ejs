@@ -13,8 +13,13 @@
         <div class="container">
         <%- include ('./detail') %>
         <button class="two-button"> Update Details </button>
-        <button class="two-button"> Delete </button>
-    </div>
+        <div id="update">
+          <%- include ('./edit') %>
+        </div>
+        <form action="/delete/<%= data.id%>?_method=delete" method="POST">
+          <button class="two-button"> Delete Book</button>
+        </form>    
+      </div>
     </main>
     <script>
         function myFunction() {
