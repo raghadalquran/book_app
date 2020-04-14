@@ -98,7 +98,7 @@ button#details-button {
   
   /* Full-width input fields */
   .form-container input[type=text], .form-container input[type=password] {
-    width: 74%;
+    width: 83%;
     padding: 15px;
     margin: 5px 0 22px 0;
     border: none;
@@ -132,6 +132,12 @@ button#details-button {
   .form-container .btn:hover, .open-button:hover {
     opacity: 1;
   }
+  form#book-form {
+    width: 49.860908vw;
+    padding-bottom: 10px;
+    /* margin-bottom: 15px; */
+    padding: -39px;
+}
 }
   @media (min-width:425px){
     button.two-button {
@@ -149,14 +155,6 @@ button#details-button {
         width: 16vw;
 
     }
-    form#book-form {
-        width: 47.860908vw;
-        padding-bottom: 23px;
-        margin-right: 105px;
-        /* margin-bottom: 15px; */
-        padding: -39px;
-    }
-    
     button#my-button {
         /* padding-top: 4px; */
         padding: 6px;
@@ -219,6 +217,8 @@ button#details-button {
         /* padding-bottom: 141px; */
         margin-right: 430px;
         /* margin-bottom: 15px; */
+        margin-bottom: 15px;
+        margin-left: 130px;
         padding: -39px;
     }
     .form-container input[type=text], .form-container input[type=password] {

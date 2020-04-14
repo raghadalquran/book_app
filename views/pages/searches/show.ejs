@@ -18,22 +18,22 @@
             <h3><%= val.title%></h3>
             <h4><%= val.author %></h4>
             <p><%= val.description%></p>
-            <button class="open-button" onclick="openForm()">Select This Book</button>
+            <button class="open-button hide_btn">Select This Book</button>
             <!------------------------------- form section ------------------------>
-            <div class="form-popup" id="myForm">
+            <!-- <div class="form-popup" id="myForm"> -->
               <form action="/books" method="POST" id="book-form" class="form-container">      
-                <input type="text" name="image_url" value="<%= val.image_url %>" style="display: none;"> />
+                <input type="text" name="image_url" value="<%= val.image_url %>" style="display: none;">
                 <input type="text" name="title" value="<%= val.title%>" />
                 <input type="text" name="author"  value="<%= val.author%>"/>
                 <input type="text" name="isbn" value="<%= val.isbn%>" />
                 <input type="text" name="description" value="<%= val.description%>" />
                 <input type="text" name="bookShelf" placeholder="Enter the shelf name !"  required/>
                 <button type="submit">Add to Database </button>
-                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                <!-- <button type="button" class="btn cancel" onclick="closeForm()">Close</button> -->
               </form>
             <!---------------------------------------------------------------------------------->
             </div>
-          </div>
+          <!-- </div> -->
         <% }) %>
     </main>
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -54,5 +54,8 @@
           document.getElementById("myForm").style.display = "none";
         }
       </script>
+      <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"></script>
+    <script src="../js/app.js"></script>
 </body>
 </html>

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <%- include ('../../layout/head') %>
+    
 </head>
 <body>
     <!-- Top Navigation Menu -->
@@ -12,9 +13,14 @@
     <main id="indexMain">
         <div class="container">
         <%- include ('./detail') %>
-        <button class="two-button"> Update Details </button>
-        <button class="two-button"> Delete </button>
-    </div>
+        <button class="two-button hide_btn"> Update Details </button>
+        <div id="update">
+          <%- include ('./edit') %>
+        </div>
+        <form action="/delete/<%= data.id%>?_method=delete" method="POST">
+          <button class="two-button del-button"> Delete Book</button>
+        </form>    
+      </div>
     </main>
     <script>
         function myFunction() {
@@ -26,5 +32,8 @@
           }
         }
         </script>
+        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+      <script src="../js/app.js"></script>
 </body>
 </html>
