@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 const client = new pg.Client(process.env.DATABASE_URL);
-const methodOverRide = require('method-override')  //////////
+const methodOverRide = require('method-override') //////////
 app.use(methodOverRide('_method'))
 
 ////////////////

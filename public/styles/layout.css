@@ -25,4 +25,37 @@ form button{
 input[type="radio"]  {
     margin-left: 13%;
 }
+input.first-radio {
+    margin-left: 47px;
+}
+button.view-button {
+    background-color: #789498;
+    padding: 7px;
+    width: 37%;
+    color: white;
+    margin-bottom: 20px;
+}
+
+}
+@media (min-width:425px){
+form {
+    display: grid;
+    width: 61vw;
+    margin-top: 34px;
+    margin-left: 13%;
+}
+button.two-button.del-button {
+    margin-left: 141px;
+}
+button.view-button {
+    background-color: #789498;
+    padding: 7px;
+    width: 14%;
+    color: white;
+    margin-bottom: 20px;
+}
+input.first-radio {
+    margin-left: 93px;
+}
+
 }
