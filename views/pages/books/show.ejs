@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <%- include ('../../layout/head') %>
+    
 </head>
 <body>
     <!-- Top Navigation Menu -->
@@ -12,7 +13,7 @@
     <main id="indexMain">
         <div class="container">
         <%- include ('./detail') %>
-        <button class="two-button"> Update Details </button>
+        <button class="two-button hide_btn"> Update Details </button>
         <div id="update">
           <%- include ('./edit') %>
         </div>
@@ -31,5 +32,8 @@
           }
         }
         </script>
+        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+      <script src="../js/app.js"></script>
 </body>
 </html>

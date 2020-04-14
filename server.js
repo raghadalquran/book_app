@@ -24,9 +24,9 @@ function newUpdate (req , res){
   let idParam = req.params.update_book;
   let safeValues = [author,title,isbn,image_url, description,bookShelf,idParam];
   client.query(SQL,safeValues)
-  .then(result=>{
-    res.redirect(`/books/${idParam}`);
-  })
+    .then(()=>{
+      res.redirect(`/books/${idParam}`);
+    })
 }
 
 //===============Routs=================\\
