@@ -12,7 +12,6 @@ app.set('view engine', 'ejs');
 const client = new pg.Client(process.env.DATABASE_URL);
 const methodOverRide = require('method-override') //////////
 app.use(methodOverRide('_method'))
-
 ////////////////
 app.put('/update/:update_book', newUpdate);
 function newUpdate (req , res){
@@ -28,7 +27,6 @@ function newUpdate (req , res){
       res.redirect(`/books/${idParam}`);
     })
 }
-
 //===============Routs=================\\
 app.get('/', getDataFromDB);
 app.get('/index',getDataFromDB);
@@ -44,7 +42,6 @@ function getDataFromDB(req, res) {
       res.render('./pages/index', { data: result.rows })
     })
 }
-
 //////////////
 app.delete('/delete/:deleted_book',deletBook);
 function deletBook(req,res){
@@ -56,30 +53,38 @@ function deletBook(req,res){
       res.redirect('/');
     })
 }
-
 function detailsFun(req, res) {
   let saveId = [req.params.bookID];
-  console.log(saveId);
+  // console.log(saveId);
   let sql = `SELECT * FROM books WHERE id = $1;`
+  let SQL2 = 'SELECT DISTINCT bookshelf FROM books;'
+  let arrOfBookSh=[];
+  client.query(SQL2)
+    .then(result=>{
+      arrOfBookSh=result.rows;
+    })
   return client.query(sql, saveId)
     .then(result => {
-      res.render('./pages/books/show', { data: result.rows[0] })
+      res.render('./pages/books/show', { data: result.rows[0] , arrOfBookSh : arrOfBookSh })
     })
 }
 function saveToDB(req, res) {
   let ln;
+  let title2 = req.body.title;
   let { author, title, isbn, image_url, description ,bookShelf} = req.body;
-  console.log(req.body);
+  // console.log(req.body);
   let SQL = 'INSERT INTO books (author,title,isbn,image_url,description,bookshelf) VALUES ($1,$2,$3,$4,$5,$6);';
   let safeValues = [author,title,isbn,image_url, description,bookShelf];
-  const SQL2 = 'SELECT * FROM books;';
-  client.query(SQL2)
-    .then(result => {
-      ln=result.rows.length;
-    })
-  return client.query(SQL, safeValues)
+  let safetitle =[title2];
+  const SQL2 = 'SELECT * FROM books WHERE title =$1;';
+  client.query(SQL, safeValues)
     .then(() => {
-      res.redirect(`/books/${ln+1}`);
+    })
+  return client.query(SQL2,safetitle)
+    .then(result => {
+      // console.log(result.rows[0].id);
+      ln=result.rows[0].id;
+      res.redirect(`/books/${ln}`);
     })
 }
 function newSearch (req, res) {
